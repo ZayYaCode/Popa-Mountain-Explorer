@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>အခမ်းအနားများ - ပုပ္ပါးတောင် ခရီးသွားလမ်းညွှန်</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+        <style>
+        :root {
+            --primary-color: #6B4F28;
+            --secondary-color: #FFD700;
+            --accent-color: #4CAF50;
+            --background-color: #F8FAFC;
+            --text-color: #333333;
+            --light-text: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Myanmar', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 0.5rem 0.5rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .navbar-nav .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: var(--primary-color);
+            border-radius: 1px;
+        }
+
+        .search-bar {
+            max-width: 250px;
+        }
+
+        .btn-search {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-search:hover {
+            background-color: #5a4020;
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #5a4020;
+            border-color: #5a4020;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* User section styles */
+        .user-section {
+            margin-left: auto;
+        }
+
+        .user-section .logout-btn {
+            font-size: 0.875rem;
+        }
+
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-dropdown-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 0.5rem 0;
+            z-index: 1000;
+        }
+
+        .user-dropdown-menu.show {
+            display: block;
+        }
+
+        .user-dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
+            text-align: left;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .user-dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        /* Mobile user section */
+        .mobile-user-section {
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            background-image: url('https://images.unsplash.com/photo-1583118441579-c77b3f19c720?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            margin-top: 76px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-buttons {
+            margin-top: 2rem;
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Carousel */
+        .carousel-item {
+            height: 500px;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            bottom: 2rem;
+        }
+
+        .carousel-caption h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cards */
+        .attraction-card {
+            border: none;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .attraction-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .attraction-card .card-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .attraction-card .card-text {
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2c3e50;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: #bdc3c7;
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-contact li {
+            margin-bottom: 0.75rem;
+            color: #bdc3c7;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            margin-left: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            color: #2c3e50;
+        }
+
+        /* Alert styles */
+        .custom-alert {
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .register-prompt {
+            animation: slideInUp 0.3s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .carousel-item {
+                height: 300px;
+            }
+            
+            .carousel-caption h3 {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
+        }
+        .events-hero {
+            background-image:url('assets/home/event-bk.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0 100px;
+            margin-top: 76px;
+            
+        }
+        
+        .filter-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .event-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .event-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .event-card .card-body {
+            padding: 1.5rem;
+        }
+        
+        .event-date {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .favorite-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .favorite-btn:hover, .favorite-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box .form-control {
+            padding-right: 50px;
+        }
+        
+        .search-box .btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+  <!-- ✅ Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fa-solid fa-mountain me-2"></i> ပုပ္ပါးတောင်
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="d-none d-lg-flex ms-4">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link " href="index.html">ပင်မစာမျက်နှာ</a></li>
+          <li class="nav-item"><a class="nav-link active" href="events.html">ပွဲတော်</a></li>
+          <li class="nav-item"><a class="nav-link" href="map.html">မြေပုံ</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">ဆက်သွယ်ရန်</a></li>
+        </ul>
+      </div>
+
+
+      <!-- Auth Buttons -->
+      <div id="desktopAuthButtons" class="d-none d-lg-flex">
+        <button class="btn btn-outline-primary me-2 d-none d-lg-flex" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <i class="fa-solid fa-user me-1"></i> အကောင့်ဝင်ရန်
+        </button>
+        <button class="btn btn-primary d-none d-lg-flex" data-bs-toggle="modal" data-bs-target="#registerModal">
+          အကောင့်ဖွင့်ရန်
+        </button>
+      </div>
+
+      <!-- User Dropdown -->
+      <div id="desktopUserSection" class="d-none d-lg-flex align-items-center">
+        <div class="user-dropdown">
+          <button id="userDropdownToggle" class="user-dropdown-toggle d-none d-lg-flex">
+            <span id="userGreeting"></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div id="userDropdownMenu" class="user-dropdown-menu">
+            <button class="user-dropdown-item" id="viewProfileBtn">
+              <i class="fa-solid fa-user me-2"></i> ပရိုဖိုင်ကြည့်ရန်
+            </button>
+            <button class="user-dropdown-item" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket me-2"></i> ထွက်ရန်
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ✅ Mobile Sidebar Menu -->
+  <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">
+        <i class="fa-solid fa-mountain me-2"></i>
+        ပုပ္ပါးတောင်
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Navigation Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item py-1">
+          <a class="nav-link" href="index.html">
+            <i class="fa-solid fa-house me-2 "></i>ပင်မစာမျက်နှာ
+          </a>
+        </li>
+        <li class="nav-item py-1">
+          <a class="nav-link active" href="events.html">
+            <i class="fa-solid fa-calendar-days me-2 "></i>ပွဲတော်
+          </a>
+        </li>
+
+        <li class="nav-item py-1">
+          <a class="nav-link" href="map.html">
+            <i class="fa-solid fa-map-location-dot me-2"></i>မြေပုံ
+          </a>
+        </li>
+        <li class="nav-item py-1">
+          <a class="nav-link" href="contact.html">
+            <i class="fa-solid fa-address-book me-2"></i>ဆက်သွယ်ရန်
+          </a>
+        </li>
+        
+        <!-- Mobile Auth Buttons - Visible when not logged in -->
+        <li class="nav-item mt-3" id="mobileAuthButtons">
+          <button class="btn btn-outline-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <i class="fa-solid fa-user me-1"></i> အကောင့်ဝင်ရန်
+          </button>
+          <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#registerModal">
+            အကောင့်ဖွင့်ရန်
+          </button>
+        </li>
+        
+        <!-- Mobile User Section - Visible when logged in -->
+        <li class="nav-item mt-3 d-none" id="mobileUserSection">
+          <div class="mobile-user-section pt-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-dark" id="mobileUserGreeting"></span>
+            </div>
+            <button class="btn btn-outline-primary w-100 mb-2" id="mobileViewProfileBtn">
+              <i class="fa-solid fa-user me-1"></i> ပရိုဖိုင်ကြည့်ရန်
+            </button>
+            <button class="btn btn-outline-secondary w-100" id="mobileLogoutBtn">
+              <i class="fa-solid fa-right-from-bracket me-1"></i> ထွက်ရန်
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">အကောင့်ဝင်ရန်</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginUsername" class="form-label">အသုံးပြုသူအမည်</label>
+                            <input type="text" class="form-control" id="loginUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">စကားဝှက်</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">ဝင်ရန်</button>
+                        </div>
+                        <div class="mt-3 text-center">
+                            <p class="mb-0">အကောင့်မရှိသေးပါသလား? 
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">အကောင့်ဖွင့်ရန်</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">အကောင့်ဖွင့်ရန်</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">အမည်</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">အီးမေးလ်</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">အသုံးပြုသူအမည်</label>
+                            <input type="text" class="form-control" id="registerUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">စကားဝှက်</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">စကားဝှက်အတည်ပြုရန်</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">အကောင့်ဖွင့်ရန်</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">ပရိုဖိုင်</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="fa-solid fa-user fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mt-3" id="profileName">အမည်</h4>
+                        <p class="text-muted" id="profileUsername">အသုံးပြုသူအမည်</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label class="form-label">အီးမေးလ်</label>
+                                <p class="form-control-static" id="profileEmail">email@example.com</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">အကောင့်ဖွင့်သည့်ရက်စွဲ</label>
+                                <p class="form-control-static" id="profileJoinDate">၂၀၂၅-၀၁-၀၁</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ပိတ်မည်</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Events Hero Section -->
+    <section class="events-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold mb-4">ရွှေပုပ္ပါး၏ အဓိက ပွဲတော်များ</h1>
+                    <p class="lead container" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                        အညာမြေ၏ အိုအေစစ် ပုပ္ပါးတောင်၏ ရင်သပ်ရှုမောဖွယ်ရာ ရှုခင်းတွေအောက်မှာ ပွဲအငွေ့အသက်တွေ၊ ရိုးရာ တောင်တက်ပွဲတွေနဲ့ မြန်မာ့ဒဏ္ဍာရီ တွေအကြောင်း 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section To delete-->
+    <section class="section-padding">
+        <div class="container">
+            <div class="filter-section">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="search-box">
+                            <input type="text" class="form-control" id="searchInput" placeholder="အခမ်းအနားများ ရှာဖွေရန်...">
+                            <button class="btn" type="button">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-select" id="categoryFilter">
+                            <option value="">အမျိုးအစား အားလုံး</option>
+                            <option value="ရိုးရာနတ်ပွဲတော်">ရိုးရာနတ်ပွဲတော်</option>
+                            <option value="စွန့်စားခရီးစဉ်">စွန့်စားခရီးစဉ်</option>
+                            <option value="ခရီးသွားလေ့လာရေး">ခရီးသွားလေ့လာရေး</option>
+                            <option value="ဘုရားပွဲတော်">ဘုရားပွဲတော်</option>
+                            <option value="Art">အနုပညာ</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Events Grid -->
+            <div class="row" id="eventsContainer">
+                <!-- Events will be loaded here by JavaScript -->
+            </div>
+            
+            <!-- No Results Message -->
+            <div class="row d-none" id="noResults">
+                <div class="col-12 text-center py-5">
+                    <i class="fa-solid fa-calendar-xmark fa-3x text-muted mb-3"></i>
+                    <h4 class="text-muted">ရှာဖွေမှုနှင့် ကိုက်ညီသော အခမ်းအနားများ မတွေ့ရှိပါ</h4>
+                    <p class="text-muted">ကျေးဇူးပြု၍ မတူညီသော ရှာဖွေမှုစကားလုံးများ သို့မဟုတ် စစ်ထုတ်မှုများဖြင့် ထပ်မံရှာဖွေကြည့်ပါ။</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="footer-title">
+                        <i class="fa-solid fa-mountain me-2"></i>
+                        ပုပ္ပါးတောင်
+                    </h5>
+                    <p class="footer-text">
+                        ပုပ္ပါးတောင်၏ အလှအပများ၊ ထင်ရှားသော ဒေသ များကို ဖော်ပြသော ဝက်ဘ်ဆိုက်ဖြစ်သည်။
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">လင့်ခ်များ</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="index.html">ပင်မစာမျက်နှာ</a></li>
+                        <li><a href="events.html">အခမ်းအနားများ</a></li>
+                        <li><a href="calendar.html">ပြက္ခဒိန်</a></li>
+                        <li><a href="map.html">မြေပုံ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">အခြားလင့်ခ်များ</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="contact.html">ဆက်သွယ်ရန်</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">အကောင့်ဝင်ရန်</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">အကောင့်ဖွင့်ရန်</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-heading">ဆက်သွယ်ရန်</h5>
+                    <ul class="footer-contact list-unstyled">
+                        <li><i class="fa-solid fa-location-dot me-2"></i> ပုပ္ပါးတောင်၊ မြန်မာနိုင်ငံ</li>
+                        <li><i class="fa-solid fa-phone me-2"></i>  +၉၅ ၉ ၇၉၇၁၃၅၉၁၄</li>
+                        <li><i class="fa-solid fa-envelope me-2"></i> info@popamountain.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">၂၀၂၅ ပုပ္ပါးတောင် ခရီးသွားလမ်းညွှန်။ မူပိုင်ခွင့်အားလုံးရှိသည်။</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    </div>
+
+    <!-- Event Details Modal -->
+    <div class="modal fade" id="eventDetailsModal" tabindex="-1" aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventDetailsModalLabel">အခမ်းအနားအသေးစိတ်</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="eventDetailsContent">
+                    <!-- Event details will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ပိတ်မည်</button>
+                    <button type="button" class="btn btn-primary" id="eventFavoriteBtn">
+                        <i class="fa-solid fa-heart me-1"></i> စိတ်ဝင်စားတယ် ❤️
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="imageLightboxModal" tabindex="-1" aria-labelledby="imageLightboxModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-body p-0 text-center">
+                <img id="lightboxImage" src="" class="img-fluid rounded" alt="Enlarged Image">
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Main JavaScript for Popa Mountain Explorer
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize user state
+        initializeUserState();
+        
+        // Setup event listeners
+        setupEventListeners();
+    });
+
+    // User state management
+    function initializeUserState() {
+        const currentUser = localStorage.getItem('currentUser');
+        updateUIForAuthState(!!currentUser);
+        
+        if (currentUser) {
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+            const user = users[currentUser];
+            if (user) {
+                updateUIForLoggedInUser(user);
+            }
+        }
+    }
+
+    function updateUIForAuthState(isLoggedIn) {
+        // Desktop elements
+        const desktopAuthButtons = document.getElementById('desktopAuthButtons');
+        const desktopUserSection = document.getElementById('desktopUserSection');
+        
+        // Mobile elements  
+        const mobileAuthButtons = document.getElementById('mobileAuthButtons');
+        const mobileUserSection = document.getElementById('mobileUserSection');
+        
+        if (isLoggedIn) {
+            // User logged in - Hide auth buttons, show user section
+            if (desktopAuthButtons) {
+                desktopAuthButtons.classList.add('d-none');
+                desktopAuthButtons.classList.remove('d-lg-flex');
+            }
+            if (desktopUserSection) {
+                desktopUserSection.classList.remove('d-none');
+                desktopUserSection.classList.add('d-lg-flex');
+            }
+            if (mobileAuthButtons) {
+                mobileAuthButtons.style.display = 'none';
+            }
+            if (mobileUserSection) {
+                mobileUserSection.style.display = 'block';
+                mobileUserSection.classList.remove('d-none');
+            }
+        } else {
+            // User logged out - Show auth buttons, hide user section
+            if (desktopAuthButtons) {
+                desktopAuthButtons.classList.remove('d-none');
+                desktopAuthButtons.classList.add('d-lg-flex');
+            }
+            if (desktopUserSection) {
+                desktopUserSection.classList.add('d-none');
+                desktopUserSection.classList.remove('d-lg-flex');
+            }
+            if (mobileAuthButtons) {
+                mobileAuthButtons.style.display = 'block';
+            }
+            if (mobileUserSection) {
+                mobileUserSection.style.display = 'none';
+                mobileUserSection.classList.add('d-none');
+            }
+        }
+    }
+
+    function setupEventListeners() {
+        // Login form submission
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) {
+            loginForm.addEventListener('submit', handleLogin);
+        }
+        
+        // Register form submission
+        const registerForm = document.getElementById('registerForm');
+        if (registerForm) {
+            registerForm.addEventListener('submit', handleRegister);
+        }
+        
+        // User dropdown toggle
+        const userDropdownToggle = document.getElementById('userDropdownToggle');
+        if (userDropdownToggle) {
+            userDropdownToggle.addEventListener('click', toggleUserDropdown);
+        }
+        
+        // Logout buttons
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', handleLogout);
+        }
+        
+        const mobileLogoutBtn = document.getElementById('mobileLogoutBtn');
+        if (mobileLogoutBtn) {
+            mobileLogoutBtn.addEventListener('click', handleLogout);
+        }
+        
+        // View profile buttons
+        const viewProfileBtn = document.getElementById('viewProfileBtn');
+        if (viewProfileBtn) {
+            viewProfileBtn.addEventListener('click', showProfile);
+        }
+        
+        const mobileViewProfileBtn = document.getElementById('mobileViewProfileBtn');
+        if (mobileViewProfileBtn) {
+            mobileViewProfileBtn.addEventListener('click', showProfile);
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const userDropdown = document.getElementById('userDropdownMenu');
+            const userDropdownToggle = document.getElementById('userDropdownToggle');
+            
+            if (userDropdown && userDropdownToggle && 
+                !userDropdown.contains(event.target) && 
+                !userDropdownToggle.contains(event.target)) {
+                userDropdown.classList.remove('show');
+            }
+        });
+    }
+
+    // Login handler
+    function handleLogin(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        // Client-side validation
+        if (!username || !password) {
+            showAlert('ကျေးဇူးပြု၍ အသုံးပြုသူအမည်နှင့် စကားဝှက်ကို ဖြည့်စွက်ပါ။', 'error');
+            return;
+        }
+        
+        // Check if user exists in localStorage
+        const users = JSON.parse(localStorage.getItem('users') || '{}');
+        if (!users[username]) {
+            showAlert('အကောင့်မရှိသေးပါ။ ကျေးဇူးပြု၍ အကောင့်အရင်ဖွင့်ပါ။', 'error');
+            
+            // Redirect to registration form
+            const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            if (loginModal) {
+                loginModal.hide();
+            }
+            setTimeout(() => {
+                const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+                registerModal.show();
+            }, 500);
+            
+            return;
+        }
+        
+        // Check password
+        if (users[username].password !== password) {
+            showAlert('စကားဝှက်မှားယွင်းနေပါသည်။', 'error');
+            return;
+        }
+        
+        // Login successful
+        localStorage.setItem('currentUser', username);
+        updateUIForAuthState(true);
+        updateUIForLoggedInUser(users[username]);
+        
+        // Close modal
+        const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+        if (loginModal) {
+            loginModal.hide();
+        }
+        
+        showAlert('အကောင့်သို့ အောင်မြင်စွာ ဝင်ရောက်ပြီးပါပြီ။', 'success');
+        
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) {
+            const bsOffcanvas = bootstrap.Offcanvas.getInstance(mobileMenu);
+            if (bsOffcanvas) {
+                bsOffcanvas.hide();
+            }
+        }
+    }
+
+    // Register handler
+    function handleRegister(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const username = document.getElementById('registerUsername').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('registerConfirmPassword').value;
+        
+        // Client-side validation
+        if (!name || !email || !username || !password || !confirmPassword) {
+            showAlert('ကျေးဇူးပြု၍ အကုန်လုံးသော အကွက်များကို ဖြည့်စွက်ပါ။', 'error');
+            return;
+        }
+        
+        if (password !== confirmPassword) {
+            showAlert('စကားဝှက်များ မကိုက်ညီပါ။', 'error');
+            return;
+        }
+        
+        // Check if username already exists
+        const users = JSON.parse(localStorage.getItem('users') || '{}');
+        if (users[username]) {
+            showAlert('ဤအသုံးပြုသူအမည်ဖြင့် အကောင့်ရှိပြီးသားဖြစ်သည်။', 'error');
+            return;
+        }
+        
+        // Register user
+        users[username] = {
+            name: name,
+            email: email,
+            username: username,
+            password: password,
+            registeredAt: new Date().toISOString()
+        };
+        
+        localStorage.setItem('users', JSON.stringify(users));
+        
+        // Auto login after registration
+        localStorage.setItem('currentUser', username);
+        updateUIForAuthState(true);
+        updateUIForLoggedInUser(users[username]);
+        
+        // Close modal
+        const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+        if (registerModal) {
+            registerModal.hide();
+        }
+        
+        showAlert('အကောင့်အောင်မြင်စွာ ဖွင့်လှစ်ပြီးပါပြီ။', 'success');
+        
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) {
+            const bsOffcanvas = bootstrap.Offcanvas.getInstance(mobileMenu);
+            if (bsOffcanvas) {
+                bsOffcanvas.hide();
+            }
+        }
+    }
+
+    // Update UI when user is logged in
+    function updateUIForLoggedInUser(user) {
+        if (!user) return;
+        
+        // Update desktop UI
+        updateDesktopUI(user);
+        
+        // Update mobile UI
+        updateMobileUI(user);
+    }
+
+    // Update desktop UI
+    function updateDesktopUI(user) {
+        const userGreeting = document.getElementById('userGreeting');
+        
+        if (userGreeting) {
+            userGreeting.textContent = `👤${user.name} `;
+        }
+    }
+
+    // Update mobile UI
+    function updateMobileUI(user) {
+        const mobileUserGreeting = document.getElementById('mobileUserGreeting');
+        
+        if (mobileUserGreeting) {
+            mobileUserGreeting.textContent = `👤${user.name}`;
+        }
+    }
+
+    // Toggle user dropdown
+    function toggleUserDropdown() {
+        const dropdownMenu = document.getElementById('userDropdownMenu');
+        if (dropdownMenu) {
+            dropdownMenu.classList.toggle('show');
+        }
+    }
+
+    // Show user profile
+    function showProfile() {
+        const currentUser = localStorage.getItem('currentUser');
+        const users = JSON.parse(localStorage.getItem('users') || '{}');
+        const user = users[currentUser];
+        
+        if (!user) return;
+        
+        // Update profile modal
+        document.getElementById('profileName').textContent = user.name;
+        document.getElementById('profileUsername').textContent = user.username;
+        document.getElementById('profileEmail').textContent = user.email;
+        
+        // Format join date
+        const joinDate = new Date(user.registeredAt);
+        const formattedDate = joinDate.toLocaleDateString('my-MM', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        document.getElementById('profileJoinDate').textContent = formattedDate;
+        
+        // Show modal
+        const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+        profileModal.show();
+        
+        // Close dropdown
+        const dropdownMenu = document.getElementById('userDropdownMenu');
+        if (dropdownMenu) {
+            dropdownMenu.classList.remove('show');
+        }
+        
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) {
+            const bsOffcanvas = bootstrap.Offcanvas.getInstance(mobileMenu);
+            if (bsOffcanvas) {
+                bsOffcanvas.hide();
+            }
+        }
+    }
+
+    // Logout handler
+    function handleLogout() {
+        localStorage.removeItem('currentUser');
+        updateUIForAuthState(false);
+        showAlert('အကောင့်မှ ထွက်ခွာပြီးပါပြီ။', 'success');
+        
+        // Reload page after a short delay to reset forms
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
+    }
+
+    // Alert system
+    function showAlert(message, type = 'info') {
+        // Remove any existing alerts
+        const existingAlert = document.querySelector('.custom-alert');
+        if (existingAlert) {
+            existingAlert.remove();
+        }
+        
+        // Create alert element
+        const alert = document.createElement('div');
+        alert.className = `custom-alert alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show`;
+        alert.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 300px;
+            max-width: 500px;
+        `;
+        
+        alert.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        
+        document.body.appendChild(alert);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (alert.parentNode) {
+                alert.remove();
+            }
+        }, 5000);
+    }
+
+
+    const AppHelpers = {
+        getAllEvents: () => events,
+        getEventById: (id) => events.find(e => e.id === id),
+
+        getTimeRemaining: (targetDateTime) => {
+            const total = Date.parse(targetDateTime) - Date.parse(new Date());
+            const seconds = Math.floor((total / 1000) % 60);
+            const minutes = Math.floor((total / 1000 / 60) % 60);
+            const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+            const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+            return { total, days, hours, minutes, seconds };
+        },
+
+        showAlert: (message, type = 'info') => {
+            const toastContainer = document.querySelector('.toast-container');
+            if (!toastContainer) {
+                console.warn(`Toast container not found. Message: ${message}`);
+                return;
+            }
+            const bgColor = type === 'success' ? 'bg-success' : 
+                            type === 'warning' ? 'bg-warning' : 
+                            'bg-info';
+            
+            const textColor = type === 'warning' ? 'text-dark' : 'text-white';
+            
+            const toastHTML = `
+                <div class="toast align-items-center ${bgColor} ${textColor} border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+                    <div class="d-flex">
+                        <div class="toast-body fw-bold">
+                            ${message}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            `;
+
+            toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+            
+            const newToastEl = toastContainer.lastElementChild;
+            const toast = new bootstrap.Toast(newToastEl);
+            toast.show();
+            
+            newToastEl.addEventListener('hidden.bs.toast', function() {
+                newToastEl.remove();
+            });
+        },
+        
+        isEventFavorite: (eventId) => {
+            const currentUser = localStorage.getItem('currentUser');
+            const userKey = currentUser || 'global';
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || {};
+            
+            return favorites[userKey] && favorites[userKey].includes(eventId);
+        }
+    };
+
+    const events = [
+        {
+            id: 1,
+            title: "✨ နတ်တော်လပြည့် ပုပ္ပါးနတ်ပွဲတော်ကြီး",
+            date: "2025-12-05", 
+            time: "10:00", 
+            location: "ပုပ္ပါးတောင်ကလပ် နတ်နန်း",
+            category: "ရိုးရာနတ်ပွဲတော်",
+            description: "မြန်မာ့အထင်ကရ (၃၇) မင်းနတ်နန်း စံမြန်းရာ ပုပ္ပါးတောင်ကလပ်တွင် နှစ်စဉ်ကျင်းပလေ့ရှိသော အစည်ကားဆုံး၊ အခမ်းနားဆုံးနှင့် သမိုင်းဝင် နတ်ပွဲတော်ကြီး ဖြစ်သည်။ နတ်တော်လပြည့်နေ့ကို အထွတ်အမြတ်ထား၍ ကျင်းပပြီး၊ မြန်မာနိုင်ငံအရပ်ရပ်မှ လာရောက်ကြသော ပွဲတော်ချစ်သူများနှင့် ဘုရားဖူးဧည့်သည်များ ဖြင့် အထူးစည်ကားလှပါသည်။ ဤပွဲတော်တွင် နတ်ကတော်များ၏ အကအလှများ၊ ရိုးရာသီချင်းများ နှင့် ရှေးဟောင်းဓလေ့ထုံးတမ်းများ ကို ကိုယ်တိုင်ကိုယ်ကျ လေ့လာခံစားနိုင်သလို၊ ပုပ္ပါးတောင်မကြီးရဲ့ သဘာဝအလှနဲ့ ရာသီဥတုကောင်းမွန်မှုကိုပါ တစ်ပြိုင်နက်တည်း ခံစားနိုင်မှာ ဖြစ်ပါသည်။ ရိုးရာယဉ်ကျေးမှုကို စိတ်ဝင်စားသူများအတွက် လုံးဝလက်လွတ်မခံသင့်တဲ့ ပွဲတော်ကြီးတစ်ခုဖြစ်ပါသည်။",
+            imageUrl: "assets/events/clup-1.jpg",
+            galleryImages: ["assets/events/clup-2.jpg", "assets/events/clup-3.jpg", "assets/events/clup-4.jpg", "assets/events/clup-5.jpg"]
+        },
+        {
+            id: 2,
+            title: "⛰️ ပုပ္ပါးတောင်မကြီး တောင်တက်စွန့်စားခရီး",
+            date: "2025-12-25", 
+            time: "06:00", 
+            location: "ပုပ္ပါးတောင်မကြီး ထိပ် (4,981 ပေ)",
+            category: "စွန့်စားခရီးစဉ်",
+            description: "အညာမြေ၏ အိုအေစစ်ဟု တင်စားခေါ်ဝေါ်ခြင်းခံရသော ပုပ္ပါးတောင်မကြီး၏ ထိပ် (၄,၉၈၁ ပေ) သို့ စွန့်စားတက်ရောက်ရမည့် ခရီးစဉ်ဖြစ်သည်။ ခရီးတစ်လျှောက် စိမ်းလန်းစိုပြေသော သစ်တောများ၊ ရှားပါးသော သစ်ပင်ပန်းမန်များနှင့် တိရစ္ဆာန်မျိုးစိတ်များကို လေ့လာတွေ့ရှိနိုင်ပြီး၊ အထက်မြန်မာပြည်၏ ရင်သပ်ရှုမောဖွယ် ရှုခင်းများကို အမြင့်ဆုံးမှ ခံစားကြည့်ရှုနိုင်မည်ဖြစ်သည်။ ပင်ပန်းမှုကို နှစ်သက်သော တောင်တက်ဝါသနာရှင်များနှင့် သဘာဝကို မြတ်နိုးသူများအတွက် စိန်ခေါ်မှုအပြည့်နှင့် အမှတ်ရစရာကောင်းသော ခရီးစဉ်တစ်ခုဖြစ်ပါသည်။",
+            imageUrl: "assets/events/popa.jpg",
+            galleryImages: ["assets/events/popa-1.jpg", "assets/events/popa-3.jpg", "assets/events/popa-4.jpg", "assets/events/popa-2.jpg"]
+        },
+        {
+            id: 3,
+            title: "💎 မင်္ဂလာဓါတု ကျောက်စိမ်းစေတီတော် ဘုရားပွဲ",
+            date: "2025-11-15", 
+            time: "06:00",
+            location: "ပုပ္ပါးတောင် အရှေ့ဘက်",
+            category: "ဘုရားပွဲတော်",
+            description: "နေလိုလလို ရွှေရောင်တဝင်းဝင်း တောက်ပနေသော မင်္ဂလာဓါတု ကျောက်စိမ်းစေတီတော် ဘုရားပွဲတော်ကြီးသည် နှစ်စဉ်ကျင်းပသည့် ဘာသာရေးပွဲတော်များထဲတွင် အထူးစည်ကားသော ပွဲတစ်ပွဲဖြစ်သည်။ ဘုရားဖူးဧည့်သည်များသာမက ဘိုးဘိုးမင်းခေါင်နှင့် ပဌာန်းဆက်ရှိသူများ အများဆုံး လာရောက်ဖူးမြှော်ကြသည့်အတွက် ထူးခြားသော မြင်ကွင်းများကို တွေ့မြင်ရမည်ဖြစ်သည်။ ပွဲတော်ကာလတွင် ရိုးရာပွဲဈေးတန်းများ၊ ဓမ္မသဘင်များနှင့် ကုသိုလ်ကောင်းမှုပြုလုပ်စရာများ စုဝေးနေသောကြောင့် စေတီတော်၏ ထူးခြားအံ့ဖွယ်ဖြစ်ရပ်များ ကို လေ့လာရင်း မမေ့နိုင်စရာ ဘုရားဖူးအတွေ့အကြုံကို ရရှိစေမှာ ဖြစ်ပါသည်။",
+            imageUrl: "assets/events/Mingalar.jpg", 
+            galleryImages: ["assets/events/Mingalar-1.jpg", "assets/events/Mingalar-2.jpg", "assets/events/Mingalar-3.jpg", "assets/events/Mingalar-4.jpg"]
+        },
+        {
+            id: 4,
+            title: "🪨 ကျောက်ဆင့်မ စေတီတော် ဘုရားပွဲတော်",
+            date: "2025-12-10", 
+            time: "06:00",
+            location: "ပုပ္ပါးအရှေ့ဘက်",
+            category: "ဘုရားပွဲတော်",
+            description: "မြန်မာနိုင်ငံ၏ ထင်ရှားသော ကျိုက်ထီးရိုးစေတီတော်၏ ပုံစံငယ်ဖြင့် တည်ထားကိုးကွယ်ထားပြီး၊ ကျယ်ပြန့်သော ရေပြင်ကြီးပေါ်တွင် ခန့်ညားစွာ တည်ရှိနေသောကြောင့် အေးချမ်းပြီး ကြည်နူးဖွယ်ကောင်းသည့် မြင်ကွင်းကို ပေးစွမ်းနိုင်ပါသည်။ ဘုရားပွဲတော်ကာလတွင် ရိုးရာမုန့်မျိုးစုံနှင့် အရောင်းအဝယ်ပွဲများဖြင့် အထူးစည်ကားလေ့ရှိပြီး၊ ဘုရားဖူးဧည့်သည်များစွာ လာရောက်ကြပါသည်။ ကျောက်ဆင့်မစေတီတော်သည် မင်္ဂလာဓါတု ကျောက်စိမ်းစေတီတော်မှ မော်တော်ယာဉ်ဖြင့် မိနစ်အနည်းငယ်သာ မောင်းနှင်ရသော နေရာတွင် တည်ရှိသည့်အတွက် တစ်ရက်တည်း ဖူးမြှော်လေ့လာနိုင်သော ဘုရားပွဲတော်ဖြစ်ပါသည်။",
+            imageUrl: "assets/events/kyauk.jpg", 
+            galleryImages: ["assets/events/kyauk-1.jpg", "assets/events/kyauk-2.jpg", "assets/events/kyauk-3.jpg", "assets/events/kyauk-4.jpg"]
+        },
+        {
+            id: 5,
+            title: "🌾 အေးချမ်းသာယာလှသော ပုပ္ပါးတောင်ပေါ်ကျေးရွာ",
+            date: "2026-11-30", 
+            time: "06:00",
+            location: "ပုပ္ပါးတောင်စောင်း ကျေးလက်ဒေသ",
+            category: "ခရီးသွားလေ့လာရေး",
+            description: "ပုပ္ပါးတောင်စောင်း ကျေးလက်ဒေသတွင် တည်ရှိသော ဤရွာကလေးသည် ဒေသခံများ တောင်ယာစိုက်ပျိုးခြင်းဖြင့် အဓိက အသက်မွေးဝမ်းကျောင်းပြုကြသည့် အေးချမ်းသာယာလှသော နေရာတစ်ခုဖြစ်သည်။ မြို့ပြ၏ ရှုပ်ထွေးမှုများမှ ခေတ္တခဏ ဝေးကွာပြီး ဒေသခံများ၏ ရိုးသားကြိုးစားမှုနှင့် အေးချမ်းသော နေ့စဉ်ဘဝပုံစံကို အနီးကပ် လေ့လာခွင့်ရမည်ဖြစ်သည်။ ရွာပတ်ဝန်းကျင်သည် စိမ်းလန်းစိုပြေကာ ရင်သပ်ရှုမောဖွယ် သဘာဝရှုခင်းများနှင့် တောင်တန်းအလှများကို အနားယူခံစားရင်း၊ တိတ်ဆိတ်ငြိမ်သက်သော ကျေးလက်အလှကို အပြည့်အဝ ဖမ်းဆုပ်နိုင်မည့် အကောင်းဆုံး ခရီးသွားလေ့လာရေးနေရာတစ်ခု ဖြစ်ပါသည်။",
+            imageUrl: "assets/events/taung.jpg", 
+            galleryImages: ["assets/events/taung-1.jpg", "assets/events/taung-2.jpg", "assets/events/taung-3.jpg", "assets/events/taung-4.jpg"]
+        },
+        {
+            id: 6,
+            title: "⭐️ မကြေးစည်ဘုရား",
+            date: "2025-05-05", 
+            time: "06:00", 
+            location: "မကြေးစည်ဘုရား၊ ပုပ္ပါးဒေသ",
+            category: "ဘုရားပွဲတော်",
+            description: "ပုပ္ပါးဒေသ၏ ရှေးဟောင်းသမိုင်းဝင်ဘုရားတစ်ဆူဖြစ်သော မကြေးစည်ဘုရားသည် ယခင်ကတည်းက ဒေသခံများ ကိုးကွယ်ရာနေရာ ဖြစ်သော်လည်း၊ 'မကြေးစည်' ဇာတ်လမ်းတွဲ ရိုက်ကူးရာတွင် အောင်မြင်မှုများ ရရှိပြီးနောက် ပြည်သူအများ၏ စိတ်ဝင်စားမှုကို ပိုမိုရရှိလာပါသည်။ အထူးသဖြင့် အနုပညာရှင်များ ကိုယ်တိုင် ပွဲတော်များ လာရောက်လုပ်အားပေးလေ့ရှိပြီး ပရိသတ်များနှင့်အတူ ဘုရားပွဲကို ဆင်နွှဲကြသည့်အတွက် နှစ်စဉ် ပွဲတော်ကာလတွင် အထူးစည်ကားလှပါသည်။ ဘာသာရေးအငွေ့အသက်နှင့် ခေတ်ပေါ်အနုပညာတို့ ပေါင်းစပ်နေသော ထူးခြားသည့် ဘုရားပွဲတော်တစ်ရပ်ကို ဖူးမြှော်ခံစားနိုင်မှာ ဖြစ်ပါသည်။",
+            imageUrl: "assets/events/shwe.jpg", 
+            galleryImages: ["assets/events/shwe-1.jpg", "assets/events/shwe-2.jpg", "assets/events/shwe-3.jpg", "assets/events/shwe-4.jpg"]
+        }
+    ]; 
+
+    function generateImageGrid(event) {
+        if (!event.galleryImages || event.galleryImages.length === 0) {
+            return `<p class="text-muted">ပြသရန် ဓါတ်ပုံများ မရှိသေးပါ။</p>`;
+        }
+
+        let gridHTML = '<div class="row g-2">'; 
+        
+        event.galleryImages.forEach((imageUrl, index) => {
+            gridHTML += `
+                <div class="col-6">
+                    <img 
+                        src="${imageUrl}" 
+                        class="img-fluid rounded shadow-sm gallery-thumb" 
+                        alt="${event.title} Image ${index + 1}" 
+                        style="height: 150px; width: 100%; object-fit: cover; cursor: pointer;"
+                        onclick="openGalleryModal(${event.id}, ${index})" 
+                    >
+                </div>
+            `;
+        });
+
+        gridHTML += '</div>';
+        return gridHTML;
+    }
+
+    function showEventDetails(eventId) {
+        const event = AppHelpers.getEventById(eventId); 
+        if (!event) return;
+
+        const eventDate = new Date(event.date);
+        const formattedDate = eventDate.toLocaleDateString('my-MM', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        const isFav = AppHelpers.isEventFavorite(eventId);
+        const favBtnText = isFav ? 'စိတ်ဝင်စားမှု ဖယ်ရှားရန်' : 'စိတ်ဝင်စားတယ် ❤️';
+        const favBtnClass = isFav ? 'btn-danger active' : 'btn-primary'; 
+        const imageGridHTML = generateImageGrid(event); 
+
+        const modalContent = document.getElementById('eventDetailsContent');
+        
+        modalContent.innerHTML = `
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="${event.imageUrl}" class="img-fluid rounded mb-3 " alt="${event.title}">
+                    <p><strong>နေရာ:</strong> ${event.location}</p>
+                    <p><strong>ရက်စွဲ:</strong> ${formattedDate}</p>
+                    <p><strong>အချိန်:</strong> ${event.time}</p>
+                    <p><strong>အမျိုးအစား:</strong> ${event.category}</p>
+                </div>
+                <div class="col-md-6">
+                    <h6>အသေးစိတ်အချက်အလက်များ</h6>
+                    <p>${event.description}</p>
+                    
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <h6>ဓါတ်ပုံများ Gallery (နှိပ်၍ Slide ကြည့်ပါ)</h6>
+                <div class="gallery-container">
+                    ${imageGridHTML}
+                </div>
+            </div>
+        `;
+        
+        const modalTitleEl = document.getElementById('eventDetailsModalLabel');
+        if (modalTitleEl) {
+            modalTitleEl.textContent = event.title;
+        }
+   
+        const favoriteBtn = document.getElementById('eventFavoriteBtn');
+        if (favoriteBtn) {
+            favoriteBtn.setAttribute('data-event-id', eventId); 
+            favoriteBtn.className = `btn ${favBtnClass}`; 
+            favoriteBtn.innerHTML = `<i class="fa-solid fa-heart me-1"></i> ${favBtnText}`; 
+
+            favoriteBtn.onclick = function() {
+                toggleFavorite(eventId, this, true); 
+            };
+        }
+
+        const eventDetailsModalElement = document.getElementById('eventDetailsModal');
+        if (eventDetailsModalElement) {
+            const myModal = new bootstrap.Modal(eventDetailsModalElement);
+            myModal.show();
+        }
+        
+    }
+
+    function filterEvents() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const category = document.getElementById('categoryFilter').value;
+        
+        let filteredEvents = AppHelpers.getAllEvents();
+        
+        if (searchTerm) {
+            filteredEvents = filteredEvents.filter(event => 
+                event.title.toLowerCase().includes(searchTerm) ||
+                event.description.toLowerCase().includes(searchTerm) ||
+                event.location.toLowerCase().includes(searchTerm)
+            );
+        }
+        
+        if (category) {
+            filteredEvents = filteredEvents.filter(event => event.category === category);
+        }
+        
+        // ❌ Date Filter Logic ကို လုံးဝဖယ်ရှားလိုက်ပါပြီ
+        
+        displayEvents(filteredEvents);
+    }
+
+    function populateCategoryFilter() {
+        const categoryFilter = document.getElementById('categoryFilter');
+        if (!categoryFilter) return;
+
+        const categories = events.map(event => event.category);
+        const uniqueCategories = [...new Set(categories)];
+
+        categoryFilter.innerHTML = '<option value="">အမျိုးအစား အားလုံး</option>'; 
+        
+        uniqueCategories.sort().forEach(category => {
+            const option = document.createElement('option');
+            option.value = category; 
+            option.textContent = category; 
+            categoryFilter.appendChild(option);
+        });
+    }
+
+    function setupEventFilters() {
+        populateCategoryFilter();
+
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        
+        searchInput.addEventListener('input', filterEvents);
+        categoryFilter.addEventListener('change', filterEvents);
+        
+    }
+
+    function toggleFavorite(eventId, button, isModal = false) {
+        const currentUser = localStorage.getItem('currentUser');
+        if (!currentUser) {
+            AppHelpers.showAlert('စိတ်ဝင်စားသည့်စာရင်းသို့ ထည့်သွင်းရန်အတွက် အကောင့်ဝင်ရန် (Login) လိုအပ်ပါသည်။', 'warning');
+            return; 
+        }
+        
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || {};
+        const userKey = currentUser; 
+
+        if (!favorites[userKey]) {
+            favorites[userKey] = [];
+        }
+        
+        const eventIndex = favorites[userKey].indexOf(eventId);
+        let action = '';
+
+        if (eventIndex > -1) {
+            favorites[userKey].splice(eventIndex, 1);
+            action = 'remove';
+        } else {
+            favorites[userKey].push(eventId);
+            action = 'add';
+        }
+        
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+
+        updateFavoriteButtons(eventId, action);
+
+        const message = action === 'add' ? 'အခမ်းအနားကို စိတ်ဝင်စားသည့်စာရင်းသို့ ထည့်သွင်းပြီးပါပြီ။' : 'အခမ်းအနားကို စိတ်ဝင်စားသည့်စာရင်းမှ ဖယ်ရှားပြီးပါပြီ။';
+        const type = action === 'add' ? 'success' : 'info';
+        AppHelpers.showAlert(message, type);
+        
+    }
+
+    function updateFavoriteButtons(eventId, action) {
+        const isFav = action === 'add';
+        const favBtnText = isFav ? 'စိတ်ဝင်စားမှု ဖယ်ရှားရန်' : 'စိတ်ဝင်စားတယ် ❤️';
+        const favBtnClass = isFav ? 'btn-danger active' : 'btn-primary';
+
+        document.querySelectorAll(`.favorite-btn[data-event-id="${eventId}"]`).forEach(btn => {
+            btn.innerHTML = `<i class="fa-solid fa-heart me-1"></i> ${favBtnText}`;
+            btn.className = `btn ${isFav ? 'btn-danger active' : 'btn-primary'} favorite-btn`;
+        });
+
+        const modalBtn = document.getElementById('eventFavoriteBtn');
+        if (modalBtn && parseInt(modalBtn.getAttribute('data-event-id')) === eventId) {
+            modalBtn.innerHTML = `<i class="fa-solid fa-heart me-1"></i> ${favBtnText}`;
+            modalBtn.className = `btn ${favBtnClass}`;
+        }
+    }
+
+    function displayEvents(events) {
+        const container = document.getElementById('eventsContainer');
+        const noResults = document.getElementById('noResults');
+        
+        if (events.length === 0) {
+            container.innerHTML = '';
+            noResults.classList.remove('d-none');
+            return;
+        }
+        
+        noResults.classList.add('d-none');
+        
+        let eventsHTML = '';
+        
+        events.forEach(event => {
+            const eventDate = new Date(event.date);
+            const formattedDate = eventDate.toLocaleDateString('my-MM', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            const isFav = AppHelpers.isEventFavorite(event.id);
+            const favBtnText = isFav ? 'စိတ်ဝင်စားမှု ဖယ်ရှားရန်' : 'စိတ်ဝင်စားတယ် ❤️';
+            const favBtnClass = isFav ? 'btn-danger active' : 'btn-primary';
+            
+            eventsHTML += `
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card event-card">
+                        <img src="${event.imageUrl}" class="card-img-top" alt="${event.title}">
+                        <div class="card-body">
+                            <div class="event-date">${formattedDate}</div>
+                            <h5 class="card-title">${event.title}</h5>
+                            <p class="card-text text-muted">
+                                <i class="fa-solid fa-clock me-1"></i> ${event.time} <br>
+                                <i class="fa-solid fa-location-dot me-1"></i> ${event.location}
+                            </p>
+                            <p class="card-text">${event.description.substring(0, 100)}...</p>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary view-event-btn" data-event-id="${event.id}">
+                                    အသေးစိတ်ကြည့်ရန်
+                                </button>
+                                <button class="btn ${favBtnClass} favorite-btn" data-event-id="${event.id}">
+                                    <i class="fa-solid fa-heart me-1"></i> ${favBtnText}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = eventsHTML;
+        
+        // Add event listeners (Buttons)
+        document.querySelectorAll('.view-event-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const eventId = parseInt(this.getAttribute('data-event-id'));
+                showEventDetails(eventId);
+            });
+        });
+        
+        document.querySelectorAll('.favorite-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const eventId = parseInt(this.getAttribute('data-event-id'));
+                toggleFavorite(eventId, this);
+            });
+        });
+    }
+
+    function createLightboxCarouselHTML(event, initialIndex = 0) {
+        let carouselItems = '';
+        
+        event.galleryImages.forEach((imageUrl, index) => {
+            const activeClass = index === initialIndex ? 'active' : '';
+            carouselItems += `
+                <div class="carousel-item ${activeClass}">
+                    <img src="${imageUrl}" class="d-block w-100" alt="Gallery Image ${index + 1}" style="max-height: 85vh; object-fit: contain;">
+                </div>
+            `;
+        });
+
+        return `
+            <div id="lightboxCarousel" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner">
+                    ${carouselItems}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#lightboxCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#lightboxCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        `;
+    }
+
+    function openGalleryModal(eventId, initialIndex) {
+        const event = AppHelpers.getEventById(eventId); 
+        if (!event || !event.galleryImages || event.galleryImages.length === 0) return;
+
+        const carouselHTML = createLightboxCarouselHTML(event, initialIndex);
+        
+        const lightboxContent = `
+            <div class="modal fade" id="fullGalleryModal" tabindex="-1" aria-labelledby="fullGalleryModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title text-light" id="fullGalleryModalLabel">${event.title} - ဓါတ်ပုံ Gallery</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex justify-content-center align-items-center p-0">
+                            ${carouselHTML}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', lightboxContent);
+        
+        const galleryModalElement = document.getElementById('fullGalleryModal');
+        const galleryModal = new bootstrap.Modal(galleryModalElement);
+        
+        galleryModalElement.addEventListener('hidden.bs.modal', function() {
+            galleryModalElement.remove();
+        });
+
+        galleryModal.show();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        displayEvents(events);
+        setupEventFilters();
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ပုပ္ပါးတောင် အကြောင်း</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #6B4F28;
+            --secondary-color: #FFD700;
+            --accent-color: #4CAF50;
+            --background-color: #F8FAFC;
+            --text-color: #333333;
+            --light-text: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Myanmar', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .navbar-nav .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 1rem;
+            right: 1rem;
+            height: 2px;
+            background: var(--primary-color);
+            border-radius: 1px;
+        }
+
+        .search-bar {
+            max-width: 300px;
+        }
+
+        .btn-search {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-search:hover {
+            background-color: #5a4020;
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #5a4020;
+            border-color: #5a4020;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* User section styles */
+        .user-section {
+            margin-left: auto;
+        }
+
+        .user-section .logout-btn {
+            font-size: 0.875rem;
+        }
+
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .user-dropdown-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .user-dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 0.5rem 0;
+            z-index: 1000;
+        }
+
+        .user-dropdown-menu.show {
+            display: block;
+        }
+
+        .user-dropdown-item {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
+            text-align: left;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .user-dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        /* Mobile user section */
+        .mobile-user-section {
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 80vh;
+            background-image: url('https://images.unsplash.com/photo-1583118441579-c77b3f19c720?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            margin-top: 76px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-buttons {
+            margin-top: 2rem;
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Carousel */
+        .carousel-item {
+            height: 500px;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            bottom: 2rem;
+        }
+
+        .carousel-caption h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cards */
+        .attraction-card {
+            border: none;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .attraction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .attraction-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .attraction-card .card-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .attraction-card .card-text {
+            color: #666;
+        }
+        /*Testimonial*/
+        /* Custom Styles for Testimonial Section */
+
+.testimonial-section {
+    background-color: #f7f7f7; /* အနည်းငယ် ဖျော့သော နောက်ခံ */
+    font-family: 'Noto Sans Myanmar', sans-serif;
+}
+
+.text-dark-green {
+    color: #2e7d32; /* ပုပ္ပါးသစ်တော၏ အစိမ်းရောင် */
+}
+
+/* Testimonial Card ၏ ပုံစံ */
+.testimonial-card {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-height: 350px; /* Card အရွယ်အစားကို ထိန်းထားရန် */
+}
+
+/* Profile Image ပုံစံ (Testimonial Card အတွက် ပုံများကို သင်၏ s-img များဖြင့် အစားထိုးနိုင်သည်) */
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #388e3c; /* အစိမ်းရောင် အနားသတ် */
+}
+
+/* Testimonial စာသား ပုံစံ */
+.blockquote p {
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Quote footer (နာမည်) ပုံစံ */
+.blockquote-footer {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 15px !important;
+}
+
+/* Carousel Control (Arrows) အရောင် ပြောင်းလဲခြင်း */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* Control icon များကို အဖြူရောင်ပြောင်းရန် */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
+}
+
+        /* Footer */
+        .footer {
+            background-color: #2c3e50;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: #bdc3c7;
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-contact li {
+            margin-bottom: 0.75rem;
+            color: #bdc3c7;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            margin-left: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            color: #2c3e50;
+        }
+
+        /* Alert styles */
+        .custom-alert {
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .register-prompt {
+            animation: slideInUp 0.3s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .carousel-item {
+                height: 300px;
+            }
+            
+            .carousel-caption h3 {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
+        }
+         @media (max-width: 540px) {
+            .hero-section{
+                height: 100vh;
+            }
+        }
+        @media (max-width: 768px) {
+    
+    /* Carousel Indicators (အောက်ခြေ အစက်လေးတွေ) နေရာကို နည်းနည်း ညှိခြင်း */
+    .carousel-indicators {
+        bottom: 0px; 
+    }
+
+    /* Testimonial Card ရဲ့ padding ကို လျှော့ချခြင်း */
+    .testimonial-card {
+        /* ဘေးတိုက်နေရာကျယ်တာကို လျှော့ချပြီး အပေါ်အောက် နေရာကို နည်းနည်း ပေးခြင်း */
+        padding: 30px 15px; 
+        max-width: 100%; /* ဖုန်းမှာ အပြည့်ယူစေခြင်း */
+        min-height: auto; /* ဖုန်းမှာ စာသားအတိုင်း အမြင့် ညှိစေခြင်း */
+    }
+    
+    /* စာလုံးအရွယ်အစားကို ပိုမိုသင့်တော်အောင် လျှော့ချခြင်း */
+    .blockquote p {
+        font-size: 1rem; /* မူရင်း 1.15rem ကနေ 1rem သို့ လျှော့ချခြင်း */
+        line-height: 1.6;
+    }
+
+    /* ခေါင်းစဉ် (Section Title) အရွယ်အစားကို လျှော့ချခြင်း */
+    .testimonial-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Profile Image ကို အရွယ်အစားနည်းနည်း လျှော့ချခြင်း */
+    .profile-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Carousel Controls (ဘေးဘယ်ညာ ခလုတ်များ) ကို ဘေးကို ပိုကပ်ခြင်း */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 15%; /* နေရာပိုပေးခြင်း */
+    }
+}
+/* ---------------------------------------------------------------- */
+/* 🚨 Featured Carousel Mobile Style Fix (768px အောက်) */
+/* ---------------------------------------------------------------- */
+@media (max-width: 500.98px) {
+    
+    /* Section Title & Subtitle များ Mobile မှာ သေးငယ်စေရန် */
+    .map-section-custom .section-title {
+        font-size: 1.8rem; /* ခေါင်းစဉ်ကို လျှော့ချခြင်း */
+    }
+    
+    .map-section-custom .section-subtitle {
+        font-size: 1rem;
+    }
+
+    /* Carousel ၏ စာသားများ (Caption) ကို Mobile အတွက် ညှိခြင်း */
+    .carousel-caption {
+        padding: 10px; /* Padding လျှော့ချခြင်း */
+        bottom: 0; /* စာသားကို အောက်ခြေမှာ တင်းကျပ်စွာထားရန် */
+        left: 0;
+        right: 0;
+        width: 100%; /* အနံအပြည့်ယူစေရန် */
+        
+        /* Background ကို ပိုမိုမဲမှောင်စေပြီး စာလုံးများကို ပိုမိုဖတ်ရလွယ်ကူစေခြင်း */
+        background-color: rgba(0, 0, 0, 0.75) !important; 
+    }
+
+    /* Caption ခေါင်းစဉ် (h3) ကို Mobile မှာ သေးငယ်စေခြင်း */
+    .carousel-caption h3 {
+        font-size: 1.1rem; /* ခေါင်းစဉ်ကို ပိုသေးအောင် လျှော့ချခြင်း */
+        margin-bottom: 5px;
+    }
+
+    /* Caption အကြောင်းအရာ (p) ကို Mobile မှာ သေးငယ်စေခြင်း */
+    .carousel-caption p {
+        font-size: 0.8rem; /* စာသားအရွယ်အစားကို ဖတ်ရလောက်အောင် ထားခြင်း */
+        /* လိုင်းအရေအတွက်ကို ထိန်းချုပ်ရန် (လိုချင်ပါက) */
+        display: -webkit-box;
+        -webkit-line-clamp: 4; /* စာကြောင်း ၄ ကြောင်းသာ ပြစေခြင်း */
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    
+    .testimonial-section h2 {
+        font-size: 1.5rem; /* ခေါင်းစဉ်ကို ပိုသေးအောင် လျှော့ချခြင်း */
+    }
+    
+    .testimonial-card {
+        padding: 0 10px; /* ဘေးနှစ်ဖက်ကို ပိုမိုနေရာပေးခြင်း */
+    }
+
+    /* Quote Card အတွင်းရှိ စာလုံးများကို လျှော့ချခြင်း */
+    .blockquote {
+        font-size: 0.95rem; /* စာသားကို Mobile မှာ ဖတ်ရလောက်အောင် ထားခြင်း */
+        padding: 15px; /* Padding လျှော့ချခြင်း */
+    }
+    
+    .blockquote p {
+        line-height: 1.4; /* စာကြောင်းအကွာအဝေးကို ပိုကျဉ်းစေခြင်း */
+    }
+    
+    .profile-img {
+        width: 60px; /* ပုံကို သေးငယ်စေခြင်း */
+        height: 60px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+      <!-- ✅ Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fa-solid fa-mountain me-2"></i> ပုပ္ပါးတောင်
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="d-none d-lg-flex ms-4">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">ပင်မစာမျက်နှာ</a></li>
+          <li class="nav-item"><a class="nav-link" href="events.html">ပွဲတော်</a></li>
+          <li class="nav-item"><a class="nav-link" href="map.html">မြေပုံ</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">ဆက်သွယ်ရန်</a></li>
+        </ul>
+      </div>
+
+
+      <!-- Auth Buttons -->
+      <div id="desktopAuthButtons" class="d-none d-lg-flex">
+        <button class="btn btn-outline-primary me-2 d-none d-lg-flex" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <i class="fa-solid fa-user me-1"></i> အကောင့်ဝင်ရန်
+        </button>
+        <button class="btn btn-primary d-none d-lg-flex" data-bs-toggle="modal" data-bs-target="#registerModal">
+          အကောင့်ဖွင့်ရန်
+        </button>
+      </div>
+
+      <!-- User Dropdown -->
+      <div id="desktopUserSection" class="d-none d-lg-flex align-items-center">
+        <div class="user-dropdown">
+          <button id="userDropdownToggle" class="user-dropdown-toggle d-none d-lg-flex">
+            <span id="userGreeting"></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div id="userDropdownMenu" class="user-dropdown-menu">
+            <button class="user-dropdown-item" id="viewProfileBtn">
+              <i class="fa-solid fa-user me-2"></i> ပရိုဖိုင်ကြည့်ရန်
+            </button>
+            <button class="user-dropdown-item" id="logoutBtn">
+              <i class="fa-solid fa-right-from-bracket me-2"></i> ထွက်ရန်
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ✅ Mobile Sidebar Menu -->
+  <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="mobileMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">
+        <i class="fa-solid fa-mountain me-2"></i>
+        ပုပ္ပါးတောင်
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Search Bar (Mobile) -->
+
+      
+      <!-- Navigation Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item py-1">
+          <a class="nav-link active" href="index.html">
+            <i class="fa-solid fa-house me-2 "></i>ပင်မစာမျက်နှာ
+          </a>
+        </li>
+        <li class="nav-item py-1">
+          <a class="nav-link" href="events.html">
+            <i class="fa-solid fa-calendar-days me-2 "></i>ပွဲတော်
+          </a>
+        </li>
+        <li class="nav-item py-1">
+          <a class="nav-link" href="map.html">
+            <i class="fa-solid fa-map-location-dot me-2"></i>မြေပုံ
+          </a>
+        </li>
+        <li class="nav-item py-1">
+          <a class="nav-link" href="contact.html">
+            <i class="fa-solid fa-address-book me-2"></i>ဆက်သွယ်ရန်
+          </a>
+        </li>
+        
+        <!-- Mobile Auth Buttons - Visible when not logged in -->
+        <li class="nav-item mt-3" id="mobileAuthButtons">
+          <button class="btn btn-outline-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <i class="fa-solid fa-user me-1"></i> အကောင့်ဝင်ရန်
+          </button>
+          <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#registerModal">
+            အကောင့်ဖွင့်ရန်
+          </button>
+        </li>
+        
+        <!-- Mobile User Section - Visible when logged in -->
+        <li class="nav-item mt-3 d-none" id="mobileUserSection">
+          <div class="mobile-user-section pt-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-dark" id="mobileUserGreeting"></span>
+            </div>
+            <button class="btn btn-outline-primary w-100 mb-2" id="mobileViewProfileBtn">
+              <i class="fa-solid fa-user me-1"></i> ပရိုဖိုင်ကြည့်ရန်
+            </button>
+            <button class="btn btn-outline-secondary w-100" id="mobileLogoutBtn">
+              <i class="fa-solid fa-right-from-bracket me-1"></i> ထွက်ရန်
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">အကောင့်ဝင်ရန်</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginUsername" class="form-label">အသုံးပြုသူအမည်</label>
+                            <input type="text" class="form-control" id="loginUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">စကားဝှက်</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">ဝင်ရန်</button>
+                        </div>
+                        <div class="mt-3 text-center">
+                            <p class="mb-0">အကောင့်မရှိသေးပါသလား? 
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">အကောင့်ဖွင့်ရန်</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">အကောင့်ဖွင့်ရန်</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">အမည်</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">အီးမေးလ်</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">အသုံးပြုသူအမည်</label>
+                            <input type="text" class="form-control" id="registerUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">စကားဝှက်</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">စကားဝှက်အတည်ပြုရန်</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">အကောင့်ဖွင့်ရန်</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">ပရိုဖိုင်</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                            <i class="fa-solid fa-user fa-2x text-white"></i>
+                        </div>
+                        <h4 class="mt-3" id="profileName">အမည်</h4>
+                        <p class="text-muted" id="profileUsername">အသုံးပြုသူအမည်</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label class="form-label">အီးမေးလ်</label>
+                                <p class="form-control-static" id="profileEmail">email@example.com</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">အကောင့်ဖွင့်သည့်ရက်စွဲ</label>
+                                <p class="form-control-static" id="profileJoinDate">၂၀၂၅-၀၁-၀၁</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ပိတ်မည်</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="background-image: url('assets/home/home.jpg'); background-size: cover; background-position: center;">
+        <div class="hero-overlay" style="background-color: rgba(0, 0, 0, 0.45);"></div>
+        
+        <div class="container hero-content">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-10">
+                    
+                    <h1 class="hero-title display-3 fw-bold animate__animated animate__fadeInDown">
+                        ပုပ္ပါးတောင်မကြီး - အညာမြေ၏ အိုအေစစ်
+                    </h1>
+                    
+                    <p class="hero-subtitle mt-4 lead animate__animated animate__fadeInUp" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                        မီးတောင်ဟောင်းတစ်လုံးဖြစ်သည့် ပုပ္ပါးတောင်မကြီး သည် ပင်လယ်ရေမျက်နှာပြင်အထက် ၄,၉၈၁ ပေ မြင့်မားစွာ တည်ရှိနေပါသည်။ ၎င်းသည် မြန်မာ့သမိုင်းတွင် အထွတ်အမြတ်ထားရာ နတ်တောင်တော်တစ်ခုအဖြစ် ထင်ရှားရုံသာမက သစ်တောများ၊ ဇီဝမျိုးကွဲများနှင့် သဘာဝစိမ့်စမ်းရေများ ပေါများရာ စိမ်းလန်းစိုပြည်သော ရတနာမြေ ဖြစ်ပါသည်။
+                    </p> 
+                    
+                    <div class="hero-buttons mt-5 animate__animated animate__fadeInUp">
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                            
+                            <a href="events.html" class="btn btn-primary btn-lg me-3 shadow-lg" style="min-width: 250px;">
+                                ⛰️ တောင်တက်ခရီးစဉ်
+                            </a>
+                            
+                            <a href="map.html" class="btn btn-outline-light btn-lg shadow-lg" style="min-width: 250px;">
+                                🔍 အလှအပရှုခင်းများ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Featured Events Section -->
+    <section class="section-padding" style="background-image: url('https://images.unsplash.com/photo-1627916962770-52f20593b44b?auto=format&fit=crop&w=1600&q=80'); background-size: cover;color: #fff;">
+        <div class="container" style="background-color: rgba(0, 0, 0, 0.5); padding:10px 30px; border-radius: 10px;">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title" style="color: #ffc107;">✨ ပုပ္ပါးတောင်မကြီး၏ ထူးခြားချက်များ</h2>
+                    <p class="section-subtitle" style="color: white;">အညာမြေ၏ အိုအေစစ်၊ သဘာဝနှင့် ယဉ်ကျေးမှု ထုံမွှမ်းရာ ဒေသ</p>
+                </div>
+            </div>
+            
+            <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#featuredCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner rounded-3">
+                    
+                    <div class="carousel-item active">
+                        <img src="assets/home/s-img-6.jpg" class="d-block w-100" alt="ပုပ္ပါးတောင် ကျေးလက်မြင်ကွင်း"> 
+                        <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.6); border-radius: 5px;">
+                            <h3>ကျေးလက်၏ သဘာဝအလှနှင့် ဒေသခံလူနေမှုဘဝ</h3>
+                            <p>
+                                တောင်ခြေကျေးရွာများ၏ သာယာလှပမှု၊ တိမ်ပင်လယ်နှင့် အစိမ်းရောင် သစ်တောများကြားမှ ဒေသခံများ၏ ရိုးရှင်းသော လူနေမှုပုံစံကို လေ့လာခံစားနိုင်ပါသည်။
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="assets/home/s-img-2.jpg" class="d-block w-100" alt="မင်္ဂလာဓါတု ကျောက်စိမ်းစေတီတော်">
+                        <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.6); border-radius: 5px;">
+                            <h3>မင်္ဂလာဓါတု ကျောက်စိမ်းစေတီတော်</h3>
+                            <p>
+                                လှပသော ကျောက်စိမ်းရောင်အဆင်းဖြင့် တည်ထားသည့် စေတီတော်ကို ဖူးမြော်ကြည်ညိုနိုင်ပါသည်။ ဗုဒ္ဓဘာသာနှင့် ရိုးရာနတ်ကိုးကွယ်မှု ဓလေ့များ ဆုံစည်းရာ မြေဖြစ်ပါသည်။
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="assets/home/s-img-4.jpg" class="d-block w-100" alt="ကျေးလက် Resort">
+                        <div class="carousel-caption" style="background-color: rgba(0, 0, 0, 0.6); border-radius: 5px;">
+                            <h3>သဘာဝအလှပဆုံး Resort များ</h3>
+                            <p>
+                                အေးမြသော သစ်တောများနှင့် စိမ်းလန်းသော တောင်တန်းရှုခင်းများကို ကြည့်ရှုရင်း၊ အနားယူ အပန်းဖြေနိုင်သည့် ပုပ္ပါးဒေသ၏ ကျေးလက် Resort များတွင် တည်းခိုခံစားနိုင်ပါသည်။
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">ယခင်အချက်</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">နောက်ထပ်အချက်</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearby Attractions Section -->
+    <section class="section-padding bg-light" style="margin-top: -80px;">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">အနီးအနားရှိ ဆွဲဆောင်မှုများ</h2>
+                    <p class="section-subtitle">ပုပ္ပါးတောင်နှင့် ပတ်သက်သော စိတ်ဝင်စားဖွယ်နေရာများ</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Attraction Card 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card attraction-card h-100">
+                        <img src="assets/home/s-img-1.img" class="card-img-top" alt="ပုပ္ပါးတောင်တံခါး ဘုရား">
+                        <div class="card-body">
+                            <h5 class="card-title">ပုပ္ပါးတောင်ကလပ်</h5>
+                            <p class="card-text">
+                               ပုပ္ပါးတောင်ကလပ် သည် မြန်မာ့ရိုးရာ နတ်ကိုးကွယ်မှု၏ ဗဟိုချက်ဖြစ်သည်။ တောင်ထိပ်ပေါ်ရှိ စေတီတော်များသို့ လှေကားထစ်ပေါင်း ၇၇၇ ထစ် တက်ရောက်ရပြီး၊ လမ်းတစ်လျှောက်တွင် မြောက်များစွာသော မျောက်များ ကို တွေ့မြင်ရပါမည်။ ဤသည်မှာ သဘာဝအလှ၊ ဗိသုကာလက်ရာနှင့် ယဉ်ကျေးမှုဓလေ့တို့ ဆုံဆည်းရာ ထူးခြားသည့် ခရီးစဉ်တစ်ခု ဖြစ်ပါသည်။
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                                <!-- Attraction Card 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card attraction-card h-100">
+                        
+                        <img src="assets\home\s-img-2.jpg" class="card-img-top" alt="ကျောက်စိမ်းစေတီတော်မြတ်">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">ကျောက်စိမ်းစေတီတော်မြတ် (ပျဥ်မန်ကြီး)</h5>
+                            
+                            <p class="card-text">
+                                ကျောက်ပန်းတောင်းမြို့နယ် တွင် တည်ရှိပြီး၊ စေတီတော်တစ်ခုလုံးကို သဘာဝကျောက်စိမ်းအစများဖြင့် တန်ဆာဆင်ထားသည်။ ထိုကြောင့် ဖူးမြော်ရသူအပေါင်း စိတ်ကြည်နူးဖွယ်ရာ ထူးခြားသော ဗိသုကာလက်ရာအလှကို မြင်တွေ့ရမည့် သာသနိက အဆောက်အအုံ ဖြစ်ပါသည်။ နဂါးရုံ ဘုးရားများလဲ များစွာရှိသည်။
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Attraction Card 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card attraction-card h-100">
+                        
+                        <img src="assets\home\s-img-3.jpg" class="card-img-top" alt="ဆည်ပေါက်ဒေသ ပန်းစိုက်ခင်း">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">ဆည်ပေါက်ဒေသ၏ အလှဆင်ပန်း စိုက်ပျိုးရေး</h5>
+                            
+                            <p class="card-text">
+                                ပုပ္ပါးတောင်ခြေအနီးရှိ ဆည်ပေါက်ကျေးရွာ သည် အလှဆင်ပန်းပင်များနှင့် ရွက်လှပင်များ အဓိကထား စိုက်ပျိုးရာ ဒေသဖြစ်သည်။ ဒေသခံတောင်သူများ၏ လက်ရာမြောက် ပန်းစိုက်ခင်းများနှင့် ရှားပါးပန်းမျိုးစုံတို့ကို လေ့လာနိုင်ပြီး၊ လတ်ဆတ်သော ပန်းများကို ဈေးနှုန်းသင့်တင့်စွာ ဝယ်ယူနိုင်ပါသည်။
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Attraction Card 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card attraction-card h-100">
+                        
+                        <img src="assets\home\s-img-4.jpg" class="card-img-top" alt="ပုပ္ပါးတောင် Resort">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Popa Mountain Resort</h5>
+                            
+                            <p class="card-text">
+                                ပုပ္ပါးတောင်မကြီး ၏ တောင်စောင်းတွင် တည်ရှိသော ဤ Resort သည် သဘာဝပတ်ဝန်းကျင်အလှကို အပြည့်အဝ ခံစားနိုင်မည့် နေရာဖြစ်သည်။ စိမ်းလန်းစိုပြည်သော သစ်တောရှုခင်းများ ကြားတွင် တိတ်ဆိတ်စွာ အနားယူနိုင်ပြီး၊ပုပ္ပါး တောင်ကလပ် ၏ အကောင်းဆုံးရှုခင်းကိုလည်း ဤ Resort မှနေ၍ လှမ်းကြည့်နိုင်ပါသည်။
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                                
+                                <!-- Attraction Card 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card attraction-card h-100">
+                        
+                        <img src="assets\home\s-img-5.jpg" class="card-img-top" alt="ပုပ္ပါး စကားဝါပန်း ကျောက်ချဉ်ရည်စိမ်">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">ပုပ္ပါးဂုဏ်ဆောင် စကားဝါပန်</h5>
+                            
+                            <p class="card-text">
+                                ရွှေဝါရောင် စကားဝါပန်း သည် ဒေသခံများ၏ ထူးခြားသော အမှတ်တရလက်ဆောင်ဖြစ်သည်။ ပုပ္ပါးနှင့် ကျောက်ပန်းတောင်းဒေသများတွင် စကားဝါပန်းများကို ကျောက်ချဉ်ရည်စိမ်ကာ လေလုံပုလင်းများဖြင့် အထူးပြုလုပ် ရောင်းချကြသည်။ ၎င်းသည် ရနံ့မွှေးကြိုင်သော ဒေသ၏ အမွေအနှစ်ဖြစ်ပြီး အမှတ်တရလက်ဆောင်အဖြစ် အထူးသင့်လျော်ပါသည်။
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                                
+                <!-- Attraction Card 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card attraction-card h-100">
+                        
+                        <img src="assets\home\s-img-6.jpg" class="card-img-top" alt="ပုပ္ပါးတောင်အနီးရှိ ကျေးရွာမြင်ကွင်း">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">ပုပ္ပါးတောင်ခြေမှ အေးချမ်းသော တောင်ပေါ်ရွာလေး</h5>
+                            
+                            <p class="card-text">
+                                အေးမြစိုစွတ်သော ရာသီဥတုနှင့် သဘာဝစိမ့်စမ်းရေတို့၏ ကျေးဇူးကြောင့် တောင်ခြေအနီးရှိ ကျေးရွာများသည် အမြဲစိမ်းလန်းစိုပြည်လျက်ရှိသည်။ ဒေသခံများသည် စိုက်ပျိုးရေးနှင့် တောင်ယာလုပ်ငန်းများကို အဓိကလုပ်ကိုင်ကြပြီး၊ ရိုးသားအေးချမ်းသော နေ့စဉ်ဘဝ နှင့် လှပသော မြေယာရှုခင်းများ ကို လေ့လာခံစားနိုင်ပါသည်။
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-------------------Testimonial------------->
+    <section class="py-5 bg-light testimonial-section">
+    <div class="container">
+        <h2 class="text-center mb-5 fw-bold text-dark-green">
+            🌟 ခရီးသွားများ၏ ပုပ္ပါးအတွေ့အကြုံများ
+        </h2>
+        
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active">
+                    <div class="testimonial-card">
+                        <img src="assets\home\t-img-1.jpg" alt="User 1" class="profile-img">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">ပုပ္ပါးတောင်ပေါ်က ရှုခင်းက ဘဝမှာ မမေ့နိုင်စရာပါပဲ။ ပင်ပန်းပေမယ့် တက်ရောက်ရကျိုးနပ်ပါတယ်။ မြင်ရတဲ့ အလှတရားက တန်ဖိုးဖြတ်မရဘူး။</p>
+                            <footer class="blockquote-footer mt-2">မသီရိ - <cite title="Source Title">ကျောက်ပန်တောင်း</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="testimonial-card">
+                         <img src="assets\home\t-img-2.jpg" alt="User 2" class="profile-img">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">Popa Mountain Resort မှာ တည်းခိုရတာ အရမ်းအေးချမ်းတယ်။ စိမ်းလန်းတဲ့ သစ်တောတွေကြားက လတ်ဆတ်တဲ့လေကို ရှူရှိုက်ပြီး အပန်းဖြေရတာ အကောင်းဆုံးပါပဲ။</p>
+                            <footer class="blockquote-footer mt-2">မေသူ - <cite title="Source Title">မန္တလေး</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="testimonial-card">
+                         <img src="assets\home\t-img-3.jpg" alt="User 3" class="profile-img">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">ကျောက်စိမ်းစေတီတော်ရဲ့ ဗိသုကာလက်ရာက တကယ်ကို ထူးခြားတယ်။ အနီးကပ်ဖူးမြော်ရတာ ကြည်နူးစရာပါ။ ဒီလိုအနုပညာလက်ရာမျိုး မမြင်ဖူးသေးဘူး။</p>
+                            <footer class="blockquote-footer mt-2">ဦးစိန် - <cite title="Source Title">တောင်ကြီး</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                 <div class="carousel-item">
+                    <div class="testimonial-card">
+                        <img src="assets\home\t-img-4.jpg" alt="User 4" class="profile-img">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">စကားဝါပန်း ကျောက်ချဉ်ရည်စိမ် လက်ဆောင်ကို ရတာ အရမ်းပျော်တယ်။ ရနံ့က တကယ်မွှေးကြိုင်ပြီး ထူးခြားတယ်။ ပုပ္ပါးရဲ့ အမှတ်တရလက်ဆောင် အကောင်းဆုံးပါပဲ။</p>
+                            <footer class="blockquote-footer mt-2">ယုနန္ဒာ - <cite title="Source Title">စစ်ကိုင်း</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+                
+                 <div class="carousel-item">
+                    <div class="testimonial-card">
+                        <img src="assets\home\t-img-5.jpg" alt="User 5" class="profile-img">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">ပုပ္ပါးအနီးက ရွာလေးတွေရဲ့ နေ့စဉ်ဘဝကို မြင်ရတာ အေးချမ်းလိုက်တာ။ စိမ်းလန်းစိုပြည်တဲ့ မြင်ကွင်းတွေက စိတ်ကို တကယ်ကြည်လင်စေတယ်။</p>
+                            <footer class="blockquote-footer mt-2">စုမွန်အောင် <cite title="Source Title">မိတ္ထီလာ</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="footer-title">
+                        <i class="fa-solid fa-mountain me-2"></i>
+                        ပုပ္ပါးတောင်
+                    </h5>
+                    <p class="footer-text">
+                        ပုပ္ပါးတောင်၏ အလှအပများ၊ ထင်ရှားသော ဒေသ များကို ဖော်ပြသော ဝက်ဘ်ဆိုက်ဖြစ်သည်။
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">လင့်ခ်များ</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="index.html">ပင်မစာမျက်နှာ</a></li>
+                        <li><a href="events.html">အခမ်းအနားများ</a></li>
+                        <li><a href="map.html">မြေပုံ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">အခြားလင့်ခ်များ</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="contact.html">ဆက်သွယ်ရန်</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">အကောင့်ဝင်ရန်</a></li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">အကောင့်ဖွင့်ရန်</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-heading">ဆက်သွယ်ရန်</h5>
+                    <ul class="footer-contact list-unstyled">
+                        <li><i class="fa-solid fa-location-dot me-2"></i> ပုပ္ပါးတောင်၊ မြန်မာနိုင်ငံ</li>
+                        <li><i class="fa-solid fa-phone me-2"></i>  +၉၅ ၉ ၇၉၇၁၃၅၉၁၄</li>
+                        <li><i class="fa-solid fa-envelope me-2"></i> info@popamountain.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0"> ၂၀၂၅ ပုပ္ပါးတောင် ခရီးသွားလမ်းညွှန်။ မူပိုင်ခွင့်အားလုံးရှိသည်။</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ✅ JS Logic -->
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize user state
+    initializeUserState();
+    
+    // Setup event listeners
+    setupEventListeners();
+});
+
+// User state management
+function initializeUserState() {
+    const currentUser = localStorage.getItem('currentUser');
+    updateUIForAuthState(!!currentUser);
+    
+    if (currentUser) {
+        const users = JSON.parse(localStorage.getItem('users') || '{}');
+        const user = users[currentUser];
+        if (user) {
+            updateUIForLoggedInUser(user);
+        }
+    }
+}
+
+function updateUIForAuthState(isLoggedIn) {
+    // Desktop elements
+    const desktopAuthButtons = document.getElementById('desktopAuthButtons');
+    const desktopUserSection = document.getElementById('desktopUserSection');
+    
+    // Mobile elements  
+    const mobileAuthButtons = document.getElementById('mobileAuthButtons');
+    const mobileUserSection = document.getElementById('mobileUserSection');
+    
+    if (isLoggedIn) {
+        // User logged in - Hide auth buttons, show user section
+        if (desktopAuthButtons) {
+            desktopAuthButtons.classList.add('d-none');
+            desktopAuthButtons.classList.remove('d-lg-flex');
+        }
+        if (desktopUserSection) {
+            desktopUserSection.classList.remove('d-none');
+            desktopUserSection.classList.add('d-lg-flex');
+        }
+        if (mobileAuthButtons) {
+            mobileAuthButtons.style.display = 'none';
+        }
+        if (mobileUserSection) {
+            mobileUserSection.style.display = 'block';
+            mobileUserSection.classList.remove('d-none');
+        }
+    } else {
+        // User logged out - Show auth buttons, hide user section
+        if (desktopAuthButtons) {
+            desktopAuthButtons.classList.remove('d-none');
+            desktopAuthButtons.classList.add('d-lg-flex');
+        }
+        if (desktopUserSection) {
+            desktopUserSection.classList.add('d-none');
+            desktopUserSection.classList.remove('d-lg-flex');
+        }
+        if (mobileAuthButtons) {
+            mobileAuthButtons.style.display = 'block';
+        }
+        if (mobileUserSection) {
+            mobileUserSection.style.display = 'none';
+            mobileUserSection.classList.add('d-none');
+        }
+    }
+}
+
+function setupEventListeners() {
+    // Login form submission
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
+    
+    // Register form submission
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', handleRegister);
+    }
+    
+    // User dropdown toggle
+    const userDropdownToggle = document.getElementById('userDropdownToggle');
+    if (userDropdownToggle) {
+        userDropdownToggle.addEventListener('click', toggleUserDropdown);
+    }
+    
+    // Logout buttons
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+    }
+    
+    const mobileLogoutBtn = document.getElementById('mobileLogoutBtn');
+    if (mobileLogoutBtn) {
+        mobileLogoutBtn.addEventListener('click', handleLogout);
+    }
+    
+    // View profile buttons
+    const viewProfileBtn = document.getElementById('viewProfileBtn');
+    if (viewProfileBtn) {
+        viewProfileBtn.addEventListener('click', showProfile);
+    }
+    
+    const mobileViewProfileBtn = document.getElementById('mobileViewProfileBtn');
+    if (mobileViewProfileBtn) {
+        mobileViewProfileBtn.addEventListener('click', showProfile);
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const userDropdown = document.getElementById('userDropdownMenu');
+        const userDropdownToggle = document.getElementById('userDropdownToggle');
+        
+        if (userDropdown && userDropdownToggle && 
+            !userDropdown.contains(event.target) && 
+            !userDropdownToggle.contains(event.target)) {
+            userDropdown.classList.remove('show');
+        }
+    });
+}
+
+// Login handler
+function handleLogin(e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    // Client-side validation
+    if (!username || !password) {
+        showAlert('ကျေးဇူးပြု၍ အသုံးပြုသူအမည်နှင့် စကားဝှက်ကို ဖြည့်စွက်ပါ။', 'error');
+        return;
+    }
+    
+    // Check if user exists in localStorage
+    const users = JSON.parse(localStorage.getItem('users') || '{}');
+    if (!users[username]) {
+        showAlert('အကောင့်မရှိသေးပါ။ ကျေးဇူးပြု၍ အကောင့်အရင်ဖွင့်ပါ။', 'error');
+        
+        // Redirect to registration form
+        const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+        if (loginModal) {
+            loginModal.hide();
+        }
+        setTimeout(() => {
+            const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+            registerModal.show();
+        }, 500);
+        
+        return;
+    }
+    
+    // Check password
+    if (users[username].password !== password) {
+        showAlert('စကားဝှက်မှားယွင်းနေပါသည်။', 'error');
+        return;
+    }
+    
+    // Login successful
+    localStorage.setItem('currentUser', username);
+    updateUIForAuthState(true);
+    updateUIForLoggedInUser(users[username]);
+    
+    // Close modal
+    const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+    if (loginModal) {
+        loginModal.hide();
+    }
+    
+    showAlert('အကောင့်သို့ အောင်မြင်စွာ ဝင်ရောက်ပြီးပါပြီ။', 'success');
+    
+    // Close mobile menu if open
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+        const bsOffcanvas = bootstrap.Offcanvas.getInstance(mobileMenu);
+        if (bsOffcanvas) {
+            bsOffcanvas.hide();
+        }
+    }
+}
+
+// Register handler
+function handleRegister(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const username = document.getElementById('registerUsername').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    
+    // Client-side validation
+    if (!name || !email || !username || !password || !confirmPassword) {
+        showAlert('ကျေးဇူးပြု၍ အကုန်လုံးသော အကွက်များကို ဖြည့်စွက်ပါ။', 'error');
+        return;
+    }
+    
+    if (password !== confirmPassword) {
+        showAlert('စကားဝှက်များ မကိုက်ညီပါ။', 'error');
+        return;
+    }
+    
+    // Check if username already exists
+    const users = JSON.parse(localStorage.getItem('users') || '{}');
+    if (users[username]) {
+        showAlert('ဤအသုံးပြုသူအမည်ဖြင့် အကောင့်ရှိပြီးသားဖြစ်သည်။', 'error');
+        return;
+    }
+    
+    // Register user
+    users[username] = {
+        name: name,
+        email: email,
+        username: username,
+        password: password,
+        registeredAt: new Date().toISOString()
+    };
+    
+    localStorage.setItem('users', JSON.stringify(users));
+    
+    // Auto login after registration
+    localStorage.setItem('currentUser', username);
+    updateUIForAuthState(true);
+    updateUIForLoggedInUser(users[username]);
+    
+    // Close modal
+    const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+    if (registerModal) {
+        registerModal.hide();
+    }
+    
+    showAlert('အကောင့်အောင်မြင်စွာ ဖွင့်လှစ်ပြီးပါပြီ။', 'success');
+    
+    // Close mobile menu if open
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+        const bsOffcanvas = bootstrap.Offcanvas.getInstance(mobileMenu);
+        if (bsOffcanvas) {
+            bsOffcanvas.hide();
+        }
+    }
+}
+
+// Update UI when user is logged in
+function updateUIForLoggedInUser(user) {
+    if (!user) return;
+    
+    // Update desktop UI
+    updateDesktopUI(user);
+    
+    // Update mobile UI
+    updateMobileUI(user);
+}
+
+// Update desktop UI
+function updateDesktopUI(user) {
+    const userGreeting = document.getElementById('userGreeting');
+    
+    if (userGreeting) {
+        userGreeting.textContent = `👤${user.name} `;
+    }
+}
+
+// Update mobile UI
+function updateMobileUI(user) {
+    const mobileUserGreeting = document.getElementById('mobileUserGreeting');
+    
+    if (mobileUserGreeting) {
+        mobileUserGreeting.textContent = `👤${user.name}`;
+    }
+}
+
+// Toggle user dropdown
+function toggleUserDropdown() {
+    const dropdownMenu = document.getElementById('userDropdownMenu');
+    if (dropdownMenu) {
+        dropdownMenu.classList.toggle('show');
+    }
+}
+
+// Show user profile
+function showProfile() {
+    const currentUser = localStorage.getItem('currentUser');
+    const users = JSON.parse(localStorage.getItem('users') || '{}');
+    const user = users[currentUser];
+    
+    if (!user) return;
+    
+    // Update profile modal
+    document.getElementById('profileName').textContent = user.name;
+    document.getElementById('profileUsername').textContent = user.username;
+    document.getElementById('profileEmail').textContent = user.email;
+    
+    // Format join date
+    const joinDate = new Date(user.registeredAt);
+    const formattedDate = joinDate.toLocaleDateString('my-MM', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    document.getElementById('profileJoinDate').textContent = formattedDate;
+    
+    // Show modal
+    const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+    profileModal.show();
+    
+    // Close dropdown
+    const dropdownMenu = document.getElementById('userDropdownMenu');
+    if (dropdownMenu) {
+        dropdownMenu.classList.remove('show');
+    }
+    
+    // Close mobile menu if open
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+        const bsOffcanvas = bootstrap.Offcanvas.getInstance(mobileMenu);
+        if (bsOffcanvas) {
+            bsOffcanvas.hide();
+        }
+    }
+}
+
+// Logout handler
+function handleLogout() {
+    localStorage.removeItem('currentUser');
+    updateUIForAuthState(false);
+    showAlert('အကောင့်မှ ထွက်ခွာပြီးပါပြီ။', 'success');
+    
+    // Reload page after a short delay to reset forms
+    setTimeout(() => {
+        location.reload();
+    }, 1000);
+}
+
+// Alert system
+function showAlert(message, type = 'info') {
+    // Remove any existing alerts
+    const existingAlert = document.querySelector('.custom-alert');
+    if (existingAlert) {
+        existingAlert.remove();
+    }
+    
+    // Create alert element
+    const alert = document.createElement('div');
+    alert.className = `custom-alert alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show`;
+    alert.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 9999;
+        min-width: 300px;
+        max-width: 500px;
+    `;
+    
+    alert.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    document.body.appendChild(alert);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (alert.parentNode) {
+            alert.remove();
+        }
+    }, 5000);
+}
+</script>
+</body>
+</html>
